@@ -26,17 +26,22 @@ This project is a real-time traffic light detection and classification system bu
 
 -----
 
-## How It Works
+## Project Structure
 
-The detection pipeline operates on each frame of the video stream and follows these steps:
-
-1.  **Frame Capture:** Reads the video source frame by frame.
-2.  **Preprocessing:** A Gaussian blur is applied to the frame to reduce noise and improve detection stability.
-3.  **HSV Conversion:** The frame is converted from the BGR color space to HSV (Hue, Saturation, Value), which isolates color information more effectively than RGB.
-4.  **Color Masking:** The HSV frame is segmented to create binary masks for red, yellow, and green colors based on predefined HSV ranges.
-5.  **Contour Detection:** The system finds contours (i.e., outlines of continuous shapes) within each color mask.
-6.  **Filtering & Validation:** Each contour is validated to ensure it resembles a traffic light. Contours that are too small or not sufficiently circular are discarded.
-7.  **Visualization:** A bounding box and a corresponding color label are drawn on the original frame for each validated traffic light.
+```
+.
+├── data/
+│   ├── videos/
+│   │   └── sample_video.mp4      # Place your input video files here
+│   │
+│   └── images/
+│       └── test_image_01.png     # Place test images here
+│
+├── .gitignore                    # To exclude unnecessary files from Git
+├── main.py                       # The main Python script with all the logic
+├── README.md                     # Project description for GitHub
+└── requirements.txt              # List of Python dependencies
+```
 
 -----
 
@@ -55,18 +60,13 @@ cd directory
 
 ```bash
 python -m venv venv
-source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
+# On Windows PowerShell
+venv\Scripts\Activate
+# On macOS/Linux
+source venv/bin/activate
 ```
 
 **3. Install Dependencies:**
-Create a file named `requirements.txt` with the following content:
-
-```
-opencv-python
-numpy
-```
-
-Then, install the packages:
 
 ```bash
 pip install -r requirements.txt
@@ -76,23 +76,23 @@ pip install -r requirements.txt
 
 ## Usage
 
-1.  Open the main Python script (e.g., `traffic_light_detector.py`).
+1.  Open `main.py`.
 
-2.  Configure the video source by modifying the `video_source` variable:
+2.  Configure the video source by modifying the `video_source` variable at the top of the file:
 
       - **For Webcam:**
         ```python
         video_source = 0
         ```
-      - **For Video File:**
+      - **For Video File (place your file in `data/videos/`):**
         ```python
-        video_source = "path/to/your/video.mp4"
+        video_source = "data/videos/sample_video.mp4"
         ```
 
 3.  Run the script from your terminal:
 
     ```bash
-    python traffic_light_detector.py
+    python main.py
     ```
 
 4.  A window will appear showing the video feed with the detections. Press the **'q'** key to close the window and terminate the program.
