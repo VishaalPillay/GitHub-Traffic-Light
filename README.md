@@ -1,14 +1,9 @@
-Of course\! A good GitHub `README.md` is essential. Here is a professional and detailed description that you can use for your repository.
-
-Just copy the content below and save it in a file named `README.md` in your project's root folder.
-
 -----
 
 # Real-Time Traffic Light Detection System
 
 This project is a real-time traffic light detection and classification system built using Python and OpenCV. The program processes video input from a live webcam or a file, identifies traffic lights, and classifies their state as red, yellow, or green. The detection is performed using color segmentation in the HSV color space, combined with shape and size filtering for improved accuracy.
 
-*(You can replace this with a screenshot or GIF of your own project running)*
 
 -----
 
@@ -52,8 +47,8 @@ Follow these steps to get the project running on your local machine.
 **1. Clone the Repository:**
 
 ```bash
-git clone https://github.com/your-username/real-time-traffic-light-detection.git
-cd real-time-traffic-light-detection
+git clone repolink
+cd directory
 ```
 
 **2. Create a Virtual Environment (Recommended):**
