@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-Time Traffic Light Detector</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Real-Time Traffic Light Detector</h1>
+            <p class="subtitle">Upload an image or use your webcam to detect traffic light states</p>
+        </header>
+
+        <main>
+            <!-- Status Display -->
+            <div class="status-section">
+                <h2 id="status-display">READY</h2>
+                <p class="status-description">Upload an image or start your webcam to begin detection</p>
+            </div>
+
+            <!-- Controls Section -->
+            <div class="controls-section">
+                <div class="control-group">
+                    <label for="imageUpload" class="file-input-label">
+                        <span class="file-input-text">Choose Image File</span>
+                        <input type="file" id="imageUpload" accept="image/*" hidden>
+                    </label>
+                </div>
+
+                <div class="control-group">
+                    <button id="startCam" class="btn btn-primary">Start Webcam</button>
+                    <button id="stopCam" class="btn btn-secondary" style="display: none;">Stop Webcam</button>
+                </div>
+            </div>
+
+            <!-- Video and Image Display -->
+            <div class="display-section">
+                <div class="video-container">
+                    <video id="webcam" autoplay playsinline style="display: none;"></video>
+                    <div id="webcam-placeholder" class="placeholder">
+                        <p>Webcam feed will appear here</p>
+                    </div>
+                </div>
+
+                <div class="result-container">
+                    <img id="resultImage" alt="Detection result" style="display: none;">
+                    <div id="result-placeholder" class="placeholder">
+                        <p>Detection results will appear here</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hidden canvas for frame capture -->
+            <canvas id="hiddenCanvas" style="display: none;"></canvas>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 Traffic Light Detector. Built with Flask, OpenCV, and Computer Vision.</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
