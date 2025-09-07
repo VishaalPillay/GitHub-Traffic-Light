@@ -1,10 +1,3 @@
-"""
-Flask Web Application for Traffic Light Detection
-
-This is the main Flask application that serves the web interface and provides
-API endpoints for traffic light detection using computer vision.
-"""
-
 from flask import Flask, render_template, request, jsonify
 import cv2
 import numpy as np
@@ -119,7 +112,3 @@ def internal_error(e):
     """Handle internal server error."""
     return jsonify({'error': 'Internal server error'}), 500
 
-
-if __name__ == '__main__':
-    # Run the Flask app
-    app.run(debug=True, host='0.0.0.0', port=5000)
